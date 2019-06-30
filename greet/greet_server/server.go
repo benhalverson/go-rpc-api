@@ -22,7 +22,7 @@ func main() {
 	s := grpc.NewServer()
 	greetpb.RegisterGreetServiceServer(s, &server{})
 
-	if err := s.Serve(lis); server != nil {
-		log.Fatalf("failed to serve %v", err)
+	if err := s.Serve(lis); err != nil {
+		log.Fatalf("failed to serve: %v", err)
 	}
 }
